@@ -1,0 +1,27 @@
+# https://docs.github.com/cn/actions/creating-actions/metadata-syntax-for-github-actions
+name: "GitHub Action Stealer"
+description: "用于窃取GitHub Action Security的信息"
+author: "CC11001100"
+inputs:
+
+  input_values:
+    required: false
+    description: "要拿取的值，可以让Action自吐值到这里然后再打印，可以是单个值，也可以是一个数组"
+
+  output_encrypt:
+    required: false
+    description: "使用的编码或者加密算法，base64 | aes256"
+    default: aes256
+
+  output_encrypt_key:
+    required: false
+    description: "AES加密算法的时候使用的key，当为AES但是没有指定key的时候会自动生成一个并输出到控制台上"
+
+  output_encrypt_iv:
+    required: false
+    description: "AES加密算法的时候使用的IV，当为AES但是没有指定IV的时候会自动生成一个并输出到控制台上"
+
+runs: # 运行的环境
+  using: node16
+  # 因为是ts开发的，所以运行的是编译后的文件，入口在dist下
+  main: "dist/main.js"

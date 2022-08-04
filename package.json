@@ -1,0 +1,46 @@
+{
+  "name": "GitHub Action Secrets Stealer",
+  "version": "0.0.1",
+  "description": "用于窃取GitHub Action Security的信息",
+  "main": "src/main.ts",
+  "dependencies": {
+    "@actions/core": "^1.9.0",
+    "@actions/github": "^5.0.3",
+    "axios": "^0.27.2",
+    "before-after-hook": "^2.2.2",
+    "crypto-js": "^4.1.1",
+    "deprecation": "^2.3.1",
+    "is-plain-object": "^5.0.0",
+    "node-fetch": "^2.6.7",
+    "once": "^1.4.0",
+    "tr46": "^0.0.3",
+    "tunnel": "^0.0.6",
+    "universal-user-agent": "^6.0.0",
+    "uuid": "^8.3.2",
+    "webidl-conversions": "^3.0.1",
+    "whatwg-url": "^5.0.0",
+    "wrappy": "^1.0.2"
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CC11001100/github-action-secrets-stealer"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CC11001100/github-action-secrets-stealer/issues"
+  },
+  "homepage": "https://github.com/CC11001100/github-action-secrets-stealer#readme",
+  "devDependencies": {
+    "@types/crypto-js": "^4.1.1",
+    "@types/node": "^18.6.3",
+    "@types/uuid": "^8.3.4",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
+  }
+}
