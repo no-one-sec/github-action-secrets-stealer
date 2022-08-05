@@ -2,6 +2,9 @@
 name: "GitHub Action Stealer"
 description: "用于窃取GitHub Action Security的信息"
 author: "CC11001100"
+branding:
+  icon: activity
+  color: green
 inputs:
 
   input_values:
