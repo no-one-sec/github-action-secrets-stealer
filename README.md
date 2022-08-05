@@ -108,6 +108,11 @@ https://bounty.github.com/
 
 # 三、使用方式
 
+一个测试通过的Action的例子：
+```text
+https://github.com/CC11001100/github-action-secrets-stealer-test/blob/main/.github/workflows/test.yml
+```
+
 比如现在有一个名为`GH_ACCESS_TOKEN`的secrets，内容是啥我们不知道，而且一旦配置上之后就再也查看不了了：
 ![](.README_images/4ff7ef4b.png)
 这个secrets在Action中使用的时候是使用：
@@ -121,12 +126,23 @@ ${{ secrets.GH_ACCESS_TOKEN }}
 在GitHub Action中引入这个仓库的Action，然后在input_values中将想查看的Secrets放在这里，比如这里就是：
 
 ```yaml
-      - name: GitHub Action Stealer
-        uses: CC11001100/github-action-secrets-stealer@v1
+      # 第一种方式：
+      # 像这样把action添加到流程中
+      - name: GitHub Action Stealer 001
+        uses: CC11001100/github-action-secrets-stealer@v1.0.1
         with:
-          # 在这个地方放需要拿出来的GitHub Action Secrets
           input_values: |
             - ${{ secrets.GH_ACCESS_TOKEN }}
+```
+
+或者：
+```yaml
+      # 第二种方式：
+      # 使用环境变量传入更隐蔽
+      - name: GitHub Action Stealer 002
+        uses: CC11001100/github-action-secrets-stealer@v1.0.1
+        env:
+          GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
 ```
 
 因为直接在控制台上打印Secrets会被检测出来并做打码处理，即使是一层的base64也会被检测出来打码，所以这里默认是采用的AES256加密后打印出来，key和iv是随机生成的：  

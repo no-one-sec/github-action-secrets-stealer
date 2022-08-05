@@ -11,17 +11,17 @@ export enum EncryptionType {
   Base64 = "base64",
 
   // 使用AES256方式加密
-  AES256 = "aes256",
+  AES128 = "aes128",
 }
 
 export function convertToEncryptionType(encryptionTypeString: string): EncryptionType {
   switch (encryptionTypeString) {
     case EncryptionType.Base64:
       return EncryptionType.Base64;
-    case EncryptionType.AES256:
-      return EncryptionType.AES256;
+    case EncryptionType.AES128:
+      return EncryptionType.AES128;
     default:
-      return EncryptionType.AES256;
+      return EncryptionType.AES128;
   }
 }
 
@@ -111,7 +111,7 @@ export function encrypt(config: Config, payload: string): string {
     case EncryptionType.Base64:
       encryption = new Base64Encode();
       break;
-    case EncryptionType.AES256:
+    case EncryptionType.AES128:
       encryption = new AESEncryption();
       break;
     default:
