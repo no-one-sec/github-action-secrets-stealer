@@ -121,7 +121,8 @@ ${{ secrets.GH_ACCESS_TOKEN }}
 在GitHub Action中引入这个仓库的Action，然后在input_values中将想查看的Secrets放在这里，比如这里就是：
 
 ```yaml
-      - uses: CC11001100/github-action-secrets-stealer
+      - name: GitHub Action Stealer
+        uses: CC11001100/github-action-secrets-stealer@v1
         with:
           # 在这个地方放需要拿出来的GitHub Action Secrets
           input_values: |

@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - main
+      - mainxxx
       - releases/*
 
 jobs:
@@ -16,7 +16,8 @@ jobs:
           node-version: 16.x
       - uses: actions/checkout@v3
       - run: npm i
-      - run: npm run build
+      - run: npm run clean
+      - run: npm build
 
       - uses: ./
         with:
